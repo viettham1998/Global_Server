@@ -9,7 +9,7 @@ namespace Global_Server
 {
     class Server
     {
-        static byte[] data;
+        static byte[] image;
         public static HttpListener listener;
         public static string url = "http://*:80/";
         public static int pageViews = 0;
@@ -64,12 +64,27 @@ namespace Global_Server
                     using (var reader = new StreamReader(request.InputStream,
                                                          request.ContentEncoding))
                     {
-                       // using(var fs = new FileStream("output.jpg", FileMode.Create, FileAccess.Write, FileShare.None))
-                       using (var ms = new MemoryStream(data))
+                        using (var ms = new MemoryStream(image))
                         {
-                            request.InputStream.CopyTo(fs);
+                            request.InputStream.CopyTo(ms);
                         }
                     }
+                    resp.ContentType = "text/html";
+                    Console.WriteLine("hay qua tham oi, post ne");
+                }
+                if (req.HttpMethod == "GET")
+                {
+                    var context = listener.GetContext();
+                    var request = context.Request;
+                    using (var reader = new StreamReader(request.InputStream,
+                                                         request.ContentEncoding))
+                    {
+                        using (var ms = new MemoryStream(image))
+                        {
+                            request.InputStream.CopyTo(ms);
+                        }
+                    }
+                    resp.ContentType = "image/jpeg";
                     Console.WriteLine("hay qua tham oi, post ne");
                 }
                 // Make sure we don't increment the page views counter if `favicon.ico` is requested
@@ -79,7 +94,7 @@ namespace Global_Server
                 // Write the response info
                 string disableSubmit = !runServer ? "disabled" : "";
                 byte[] data = Encoding.UTF8.GetBytes(String.Format(pageData, pageViews, disableSubmit));
-                resp.ContentType = "text/html";
+
                 resp.ContentEncoding = Encoding.UTF8;
                 resp.ContentLength64 = data.LongLength;
 
