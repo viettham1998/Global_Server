@@ -69,7 +69,20 @@ namespace Global_Server
                             request.InputStream.CopyTo(ms);
                         }
                     }
+                    // Make sure we don't increment the page views counter if `favicon.ico` is requested
+                    if (req.Url.AbsolutePath != "/favicon.ico")
+                        pageViews += 1;
+
+                    // Write the response info
+                    string disableSubmit = !runServer ? "disabled" : "";
+                    byte[] data = Encoding.UTF8.GetBytes(String.Format(pageData, pageViews, disableSubmit));
                     resp.ContentType = "text/html";
+                    resp.ContentEncoding = Encoding.UTF8;
+                    resp.ContentLength64 = data.LongLength;
+
+                    // Write out to the response stream (asynchronously), then close it
+                    await resp.OutputStream.WriteAsync(data, 0, data.Length);
+                    resp.Close();
                     Console.WriteLine("hay qua tham oi, post ne");
                 }
                 if (req.HttpMethod == "GET")
@@ -85,22 +98,8 @@ namespace Global_Server
                         }
                     }
                     resp.ContentType = "image/jpeg";
-                    Console.WriteLine("hay qua tham oi, post ne");
+                    await resp.OutputStream.WriteAsync(image);
                 }
-                // Make sure we don't increment the page views counter if `favicon.ico` is requested
-                if (req.Url.AbsolutePath != "/favicon.ico")
-                    pageViews += 1;
-
-                // Write the response info
-                string disableSubmit = !runServer ? "disabled" : "";
-                byte[] data = Encoding.UTF8.GetBytes(String.Format(pageData, pageViews, disableSubmit));
-
-                resp.ContentEncoding = Encoding.UTF8;
-                resp.ContentLength64 = data.LongLength;
-
-                // Write out to the response stream (asynchronously), then close it
-                await resp.OutputStream.WriteAsync(data, 0, data.Length);
-                resp.Close();
             }
         }
 
