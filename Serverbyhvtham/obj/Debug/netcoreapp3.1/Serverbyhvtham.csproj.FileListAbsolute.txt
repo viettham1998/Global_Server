@@ -1,0 +1,13 @@
+D:\hvtham\Server\Global_Server\Serverbyhvtham\bin\Debug\netcoreapp3.1\Serverbyhvtham.exe
+D:\hvtham\Server\Global_Server\Serverbyhvtham\bin\Debug\netcoreapp3.1\Serverbyhvtham.deps.json
+D:\hvtham\Server\Global_Server\Serverbyhvtham\bin\Debug\netcoreapp3.1\Serverbyhvtham.runtimeconfig.json
+D:\hvtham\Server\Global_Server\Serverbyhvtham\bin\Debug\netcoreapp3.1\Serverbyhvtham.runtimeconfig.dev.json
+D:\hvtham\Server\Global_Server\Serverbyhvtham\bin\Debug\netcoreapp3.1\Serverbyhvtham.dll
+D:\hvtham\Server\Global_Server\Serverbyhvtham\bin\Debug\netcoreapp3.1\Serverbyhvtham.pdb
+D:\hvtham\Server\Global_Server\Serverbyhvtham\obj\Debug\netcoreapp3.1\Serverbyhvtham.AssemblyInfoInputs.cache
+D:\hvtham\Server\Global_Server\Serverbyhvtham\obj\Debug\netcoreapp3.1\Serverbyhvtham.AssemblyInfo.cs
+D:\hvtham\Server\Global_Server\Serverbyhvtham\obj\Debug\netcoreapp3.1\Serverbyhvtham.csproj.CoreCompileInputs.cache
+D:\hvtham\Server\Global_Server\Serverbyhvtham\obj\Debug\netcoreapp3.1\Serverbyhvtham.dll
+D:\hvtham\Server\Global_Server\Serverbyhvtham\obj\Debug\netcoreapp3.1\Serverbyhvtham.pdb
+D:\hvtham\Server\Global_Server\Serverbyhvtham\obj\Debug\netcoreapp3.1\Serverbyhvtham.genruntimeconfig.cache
+D:\hvtham\Server\Global_Server\Serverbyhvtham\obj\Debug\netcoreapp3.1\Serverbyhvtham.csprojAssemblyReference.cache
